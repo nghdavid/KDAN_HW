@@ -35,7 +35,24 @@ const setPunch = async (employeeNum) => {
   }
 };
 
+const updatePunch = async (employeeNum, date, isPunchIn, time) => {
+  try {
+    if(isPunchIn) {
+      const sql = `UPDATE punch SET punch_in = ? WHERE punch_date = ? AND employee_num = ?`;
+      const queryParams = [time, date, employeeNum];
+      const [result] = await db.execute(sql, queryParams);
+    } else {
+      const sql = `UPDATE punch SET punch_out = ? WHERE punch_date = ? AND employee_num = ?`;
+      const queryParams = [time, date, employeeNum];
+      const [result] = await db.execute(sql, queryParams);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 (async () => {
-  const result = await setPunch(1110001);
-  console.log(result);
+  // const result = await setPunch(1110001);
+  await updatePunch(1110002, '2023-01-15', 0, '16:31:30');
+  // console.log(result);
 })();
