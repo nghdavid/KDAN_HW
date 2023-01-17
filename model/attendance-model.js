@@ -10,9 +10,12 @@ const getAbsence = async (from, to) => {
     `,
       [from, to]
     );
-    console.log(absenceList);
+
+    return absenceList;
   } catch (error) {
     console.error(error);
+    return { error: 'DB Error: getAbsence model' };
+
   }
 };
 
@@ -28,14 +31,38 @@ const getEarlyList = async (date) => {
     `,
       [date]
     );
-    console.log(earlyList);
+    return earlyList;
   } catch (error) {
     console.error(error);
+    return { error: 'DB Error: getEarlyList model' };
   }
 };
 
-(async () => {
-  // const result = await getAbsence('2022-01-02', '2023-01-16');
-  const result = await getEarlyList('2022-01-03');
-})();
+const getTotalList = async (date) => {
+  try {
+    const [totalList] = await db.query(
+      `SELECT employee_num, punch_in, punch_out 
+      FROM punch
+      WHERE punch_date = ?
+    `,
+      [date]
+    );
+    console.log(totalList);
+    return totalList;
+  } catch (error) {
+    console.error(error);
+    return { error: 'DB Error: getTotalList model' };
+  }
+};
 
+// (async () => {
+  // const result = await getAbsence('2022-01-02', '2023-01-16');
+  // const result = await getEarlyList('2022-01-03');
+  // const result = await getTotalList('2022-01-03');
+// })();
+
+module.exports = {
+  getAbsence,
+  getEarlyList,
+  getTotalList,
+};
