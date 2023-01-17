@@ -14,4 +14,9 @@ attendanceRouter.get(
   wrapAsync(attendanceController.earlyList, FILE_NAME)
 );
 
+attendanceRouter.get(
+  '/list',
+  wrapAsync(attendanceController.totalList, FILE_NAME)
+);
+
 module.exports = attendanceRouter;

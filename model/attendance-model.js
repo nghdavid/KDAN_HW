@@ -1,4 +1,5 @@
 const { db } = require('../config/mysql');
+const dayjs = require('dayjs');
 
 // 找未打下班卡的員工清單
 const getAbsence = async (from, to) => {
@@ -10,12 +11,10 @@ const getAbsence = async (from, to) => {
     `,
       [from, to]
     );
-
     return absenceList;
   } catch (error) {
     console.error(error);
     return { error: 'DB Error: getAbsence model' };
-
   }
 };
 
@@ -47,7 +46,6 @@ const getTotalList = async (date) => {
     `,
       [date]
     );
-    console.log(totalList);
     return totalList;
   } catch (error) {
     console.error(error);
@@ -55,11 +53,11 @@ const getTotalList = async (date) => {
   }
 };
 
-// (async () => {
+(async () => {
   // const result = await getAbsence('2022-01-02', '2023-01-16');
   // const result = await getEarlyList('2022-01-03');
-  // const result = await getTotalList('2022-01-03');
-// })();
+  const result = await getTotalList('2022-01-03');
+})();
 
 module.exports = {
   getAbsence,
