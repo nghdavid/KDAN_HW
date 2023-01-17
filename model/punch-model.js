@@ -32,6 +32,7 @@ const setPunch = async (employeeNum) => {
     return 3;
   } catch (error) {
     console.error(error);
+    return { error: 'DB Error: setPunch model' };
   }
 };
 
@@ -40,19 +41,26 @@ const updatePunch = async (employeeNum, date, isPunchIn, time) => {
     if(isPunchIn) {
       const sql = `UPDATE punch SET punch_in = ? WHERE punch_date = ? AND employee_num = ?`;
       const queryParams = [time, date, employeeNum];
-      const [result] = await db.execute(sql, queryParams);
+      const [result] = await db.query(sql, queryParams);
     } else {
       const sql = `UPDATE punch SET punch_out = ? WHERE punch_date = ? AND employee_num = ?`;
       const queryParams = [time, date, employeeNum];
-      const [result] = await db.execute(sql, queryParams);
+      const [result] = await db.query(sql, queryParams);
     }
   } catch (error) {
     console.error(error);
+    return { error: 'DB Error: updatePunch model' };
+
   }
 };
 
-(async () => {
-  // const result = await setPunch(1110001);
-  await updatePunch(1110002, '2023-01-15', 0, '16:31:30');
-  // console.log(result);
-})();
+// (async () => {
+//   const result = await setPunch(1110001);
+//   await updatePunch(1110001, '2023-01-17', 0, '16:31:30');
+//   console.log(result);
+// })();
+
+module.exports = {
+  setPunch,
+  updatePunch,
+};
