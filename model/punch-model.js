@@ -54,11 +54,6 @@ const updatePunch = async (employeeNum, date, isPunchIn, time) => {
   }
 };
 
-// (async () => {
-//   const result = await setPunch(1110001);
-//   await updatePunch(1110001, '2023-01-17', 0, '16:31:30');
-//   console.log(result);
-// })();
 
 module.exports = {
   setPunch,

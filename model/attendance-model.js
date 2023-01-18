@@ -53,12 +53,6 @@ const getTotalList = async (date) => {
   }
 };
 
-// (async () => {
-  // const result = await getAbsence('2022-01-02', '2023-01-16');
-  // const result = await getEarlyList('2022-01-03');
-  // const result = await getTotalList('2022-01-03');
-// })();
-
 module.exports = {
   getAbsence,
   getEarlyList,
