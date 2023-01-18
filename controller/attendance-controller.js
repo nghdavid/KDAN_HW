@@ -23,7 +23,7 @@ const earlyList = async (req, res) => {
 
 const totalList = async (req, res) => {
   let { date } = req.body;
-  if(!date) {
+  if (!date) {
     date = dayjs().format('YYYY-MM-DD');
   }
   const list = await Attendance.getTotalList(date);
