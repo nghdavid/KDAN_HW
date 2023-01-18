@@ -33,5 +33,9 @@ const insertPunch = async () => {
     const [insertResult] = await db.execute(sql, queryParams);
   }
 };
-// insertEmployee();
-insertPunch();
+
+(async () => {
+  await insertEmployee();
+  await insertPunch();
+})();
+
