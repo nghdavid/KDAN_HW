@@ -1,4 +1,19 @@
 # KDAN_HW
+## 專案部署方式
+* table資料裡面有table.sql與backup.sql。
+* load.js為將member.json讀取到db的程式(需要先將table建好，可參考table.sql)
+* db使用mysql，可以使用backup.sql來重建資料庫
+* 可使用node app.js或docker compose up -d 來啟動程式
+
+<img width="80%" alt="table_schema" src="./table/kdan.png">
+<br>
+因爲當初member.json沒有員工名稱，所以就employee的table沒有放員工名稱
+
+## 部署的部分
+目前有將程式部署在AWS的EC2，DB則使用RDS
+http://54.95.187.205:3000/api/1.0/
+不過年假期間會暫時將server關起來，1/30會再將機器打開
+到時候ip會改變(我會更新在repo)。
 
 ## API文件
 
