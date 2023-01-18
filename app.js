@@ -7,9 +7,6 @@ const punchRoute = require('./route/punch-route');
 // Express Initialization
 const express = require('express');
 const app = express();
-app.get('/api/health', (req, res) => {
-  res.sendStatus(200);
-});
 
 app.set('trust proxy', true);
 app.set('json spaces', 2);
