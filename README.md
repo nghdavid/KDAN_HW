@@ -7,7 +7,7 @@
 
 <img width="80%" alt="table_schema" src="./table/kdan.png">
 <br>
-因爲當初member.json沒有員工名稱，所以就employee的table沒有放員工名稱
+因爲當初member.json沒有員工名稱，所以employee的table沒有放員工名稱
 
 ## 部署的部分
 目前有將程式部署在AWS的EC2，DB則使用RDS
