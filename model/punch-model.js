@@ -6,8 +6,8 @@ const setPunch = async (employeeNum) => {
     const punch = dayjs();
     if (!Number.isInteger(employeeNum) || employeeNum < 0) return -1;
     const [check] = await db.query(
-      'SELECT id, employee_num, punch_date, punch_in, punch_out FROM punch WHERE employee_num = ? AND punch_date >= CURDATE()',
-      [employeeNum]
+      'SELECT id, employee_num, punch_date, punch_in, punch_out FROM punch WHERE employee_num = ? AND punch_date >= ?',
+      [employeeNum, punch.format('YYYY-MM-DD')]
     );
 
     // 上班打卡
@@ -39,18 +39,15 @@ const setPunch = async (employeeNum) => {
 const updatePunch = async (employeeNum, date, isPunchIn, time) => {
   try {
     if(isPunchIn) {
-      const sql = `UPDATE punch SET punch_in = ? WHERE punch_date = ? AND employee_num = ?`;
-      const queryParams = [time, date, employeeNum];
-      const [result] = await db.query(sql, queryParams);
+      const [result] = await db.query(`UPDATE punch SET punch_in = ? WHERE punch_date = ? AND employee_num = ?`
+      , [time, date, employeeNum]);
     } else {
-      const sql = `UPDATE punch SET punch_out = ? WHERE punch_date = ? AND employee_num = ?`;
-      const queryParams = [time, date, employeeNum];
-      const [result] = await db.query(sql, queryParams);
+      const [result] = await db.query(`UPDATE punch SET punch_out = ? WHERE punch_date = ? AND employee_num = ?`
+      , [time, date, employeeNum]);
     }
   } catch (error) {
     console.error(error);
     return { error: 'DB Error: updatePunch model' };
-
   }
 };
 
