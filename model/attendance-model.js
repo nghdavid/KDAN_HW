@@ -18,6 +18,7 @@ const getAbsence = async (from, to) => {
   }
 };
 
+// 找指定日期最早上班的五位
 const getEarlyList = async (date) => {
   try {
     const [earlyList] = await db.query(
@@ -37,6 +38,7 @@ const getEarlyList = async (date) => {
   }
 };
 
+// 找所有出席資料
 const getTotalList = async (date) => {
   try {
     const [totalList] = await db.query(
