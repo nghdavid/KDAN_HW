@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `id` smallint unsigned NOT NULL AUTO_INCREMENT,
   `number` int unsigned NOT NULL,
+  `name` varchar(255),
   PRIMARY KEY (`id`),
   UNIQUE KEY (`number`)
 );

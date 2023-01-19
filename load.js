@@ -8,8 +8,9 @@ const insertEmployee = async () => {
   for (const number of numbers) {
     const sql = 'INSERT INTO employee (number) VALUES (?)';
     const queryParams = [number + preNum];
-    const [insertResult] = await db.execute(sql, queryParams);
+    const [insertResult] = await db.query(sql, queryParams);
   }
+  return 0;
 };
 
 const insertPunch = async () => {
@@ -30,7 +31,7 @@ const insertPunch = async () => {
     const sql =
       'INSERT INTO punch (employee_num, punch_date,	punch_in,	punch_out) VALUES (?,?,?,?)';
     const queryParams = [employee.employeeNumber, date, punchIn, punchOut];
-    const [insertResult] = await db.execute(sql, queryParams);
+    const [insertResult] = await db.query(sql, queryParams);
   }
 };
 
