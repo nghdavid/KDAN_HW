@@ -30,6 +30,8 @@ http://54.95.187.205:3000/api/1.0/
 
 * **Request Example:**
   `http://[HOST_NAME]/api/[API_VERSION]/punch`
+  `http://54.95.187.205:3000/api/1.0/punch`
+  ``
   ```
   {
     "employeeNum": 1110001
@@ -83,6 +85,7 @@ http://54.95.187.205:3000/api/1.0/
 
 * **Request Example:**
   `http://[HOST_NAME]/api/[API_VERSION]/punch`
+  `http://54.95.187.205:3000/api/1.0/punch`
   ```
   {
     "employeeNum": 1110001,
@@ -120,6 +123,7 @@ http://54.95.187.205:3000/api/1.0/
   無
 * **Request Example:**
   `http://[HOST_NAME]/api/[API_VERSION]/list`
+  `http://54.95.187.205:3000/api/1.0/list`
 
 * **Success Response: 200**
 
@@ -180,6 +184,7 @@ http://54.95.187.205:3000/api/1.0/
 
 * **Request Example:**
   `http://[HOST_NAME]/api/[API_VERSION]/list`
+  `http://54.95.187.205:3000/api/1.0/list`
   ```
     {
       "date": "2022-01-03"
@@ -245,6 +250,7 @@ http://54.95.187.205:3000/api/1.0/
 
 * **Request Example:**
   `http://[HOST_NAME]/api/[API_VERSION]/absence`
+  `http://54.95.187.205:3000/api/1.0/absence`
   ```
   {
     "from": "2022-01-02",
@@ -289,6 +295,7 @@ http://54.95.187.205:3000/api/1.0/
 
 * **Request Example:**
   `http://[HOST_NAME]/api/[API_VERSION]/early`
+  `http://54.95.187.205:3000/api/1.0/early`
   ```
   {
     "date": "2022-01-03"
